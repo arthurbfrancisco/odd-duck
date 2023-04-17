@@ -28,16 +28,16 @@ let breakfastoven = new Duck('breakfast');
 let meatballbubblegum = new Duck('bubblegum');
 let redhair = new Duck('chair');
 let monstercthulhu = new Duck('cthulhu');
-let dogmouth = new Duck('dog-duck');
+let dogmouth = new Duck('dogduck');
 let meatdragon = new Duck('dragon');
 let pens = new Duck('pen');
 let sweeper = new Duck('sweep', 'png');
 let scissorcutter = new Duck('scissors');
 let sharkpillow = new Duck('shark');
-let tauntaunblanket = new Duck('tauntum');
+let tauntaunblanket = new Duck('tauntaun');
 let cannedunicorn = new Duck('unicorn');
-let pitchwater = new Duck('water');
-let glasswine = new Duck('wine-g');
+let pitchwater = new Duck('watercan');
+let glasswine = new Duck('wineglass');
 
 duckArray.push(bags, bananacutter, bathroomholder, bootsyellow, breakfastoven, meatballbubblegum, redhair, monstercthulhu, dogmouth, meatdragon, pens, sweeper, scissorcutter,  sharkpillow, sharkpillow, tauntaunblanket, cannedunicorn, pitchwater,glasswine,)    ;
 
