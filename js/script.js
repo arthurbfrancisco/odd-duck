@@ -53,7 +53,7 @@ function renderDucks(){
     while(selectedImages.length < 3){
       let randomIndex = selectRandomDuckNumber;
       let selectedImage = duckArray[randomIndex];{
-      if(!selectedImages.includes(selectedImage));
+      if(!selectedImages.includes(randomImage));
         selectedImages.push(randomIndex);
       }
       console.log(selectedImages);
