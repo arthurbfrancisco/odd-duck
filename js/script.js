@@ -1,6 +1,7 @@
 'use strict';
 // Declare an array to store duck objects
 let duckArray = [];
+let indexArray=[];
 // Get a reference to the section element in the DOM
 let myContainer = document.querySelector('section');
 // Get references to the first, second and third image elements inside the section
@@ -49,19 +50,18 @@ function renderDucks() {
     // let duck2 = selectRandomDuckNumber();
     // let duck3 = selectRandomDuckNumber();  
     // console.log(duck1, duck2, duck3);
-    let selectedImages = [];
-    while (selectedImages.length < 3) {
+    while (indexArray.length < 6) {
         let randomIndex = Math.floor(Math.random() * duckArray.length);
         //haystack.push(randomIndex, duckArray[randomIndex]);
-        if (!selectedImages.includes(randomIndex)) {
-            selectedImages.push(randomIndex);
+        if (!indexArray.includes(randomIndex)) {
+            indexArray.push(randomIndex);
         }
     }
     //   console.log(randomIndex);
 
-    let imageOneIndex = selectedImages.shift(); //25
-    let imageTwoIndex = selectedImages.pop(); //25
-    let imageThreeIndex = selectedImages.shift(); //25
+    let imageOneIndex = indexArray.shift(); //25
+    let imageTwoIndex = indexArray.pop(); //25
+    let imageThreeIndex = indexArray.shift(); //25
 
     image1.src = duckArray[imageOneIndex].src;
     image1.alt = duckArray[imageOneIndex].name;
@@ -149,6 +149,24 @@ function renderCharts() {
                         label: '# of Votes',
                         data: duckVotes,
                         borderWidth: 1,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(255, 205, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(201, 203, 207, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(255, 159, 64)',
+                            'rgb(255, 205, 86)',
+                            'rgb(75, 192, 192)',
+                            'rgb(54, 162, 235)',
+                            'rgb(153, 102, 255)',
+                            'rgb(201, 203, 207)'
+                        ],
                     },
                     {
                         label: '# of Views',
