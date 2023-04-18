@@ -7,6 +7,9 @@
     background-color: rgb(189, 188, 180);
     color: rgb(218, 164, 132);
   }
+  #chart{
+
+  }
   
   h1 {
     font-size: 5rem;
@@ -54,13 +57,9 @@
     cursor: pointer;
   }
   
-  ul {
-    margin: 1rem;
-  }
-  
   /* -- button -- */
   section + div {
-    background-color: rgba(128, 128, 128, 0.734);
+    background-color: rgba(235, 232, 232, 0.734);
     color: lightgrey;
     padding: .5rem 1rem;
     width: max-content;

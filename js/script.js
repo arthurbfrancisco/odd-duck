@@ -111,9 +111,6 @@ function viewResults() {
 
 }
 // Call renderDucks function to display initial ducks
-
-
-
 // Add an event listener to handle clicks on the duck images
 //  function renderCharts
 function renderCharts() {
@@ -132,8 +129,8 @@ function renderCharts() {
         let name = duckArray[i].name;
         duckNames.push(name);
 
-        duckVotes.push(duckArray[i].vote);
-        duckViews.push(duckArray[i].view);
+        duckVotes.push(duckArray[i].votes);
+        duckViews.push(duckArray[i].views);
         console.log(duckNames);
         console.log(duckVotes);
         console.log(duckViews); 
