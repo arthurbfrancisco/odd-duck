@@ -11,7 +11,7 @@ let image3 = document.querySelector('section img:nth-child(3)');
 let viewResultsBtn = document.querySelector('section ~ div')
 
 let counter = 0;
-let maxCounter = 5; //25
+let maxCounter = 25; //25
 
 function Duck(name, fileExtension = 'jpg') {
     this.name = name;
@@ -51,16 +51,15 @@ function renderDucks(){
     // console.log(duck1, duck2, duck3);
     let selectedImages = [];
     while(selectedImages.length < 3){
-      let randomIndex = selectRandomDuckNumber;
-      let selectedImage = duckArray[randomIndex];{
-      if(!selectedImages.includes(randomImage));
+     let randomIndex = Math.floor(Math.random() * duckArray.length);
+     if (!selectedImages.includes(randomIndex)) {
         selectedImages.push(randomIndex);
       }
-      console.log(selectedImages);
+    //   console.log(randomIndex);
     }
-let imageOneIndex = selectImages.shift();
-let imageTwoIndex = selectImages.shift();
-let imageThreeIndex = selectImages.shift();
+let imageOneIndex = selectedImages.shift();
+let imageTwoIndex = selectedImages.shift();
+let imageThreeIndex = selectedImages.shift();
 
     image1.src = duckArray[imageOneIndex].src;
     image1.alt = duckArray[imageOneIndex].name;
@@ -72,9 +71,6 @@ let imageThreeIndex = selectImages.shift();
     image3.alt = duckArray[imageThreeIndex].name;
     duckArray[imageThreeIndex].views++;
     }
-// - handle goat clicks
-//     - what goat was click on
-//     - increment the number of votes on that goat
 
 function handleDuckClick(event) {
     counter++;
@@ -90,7 +86,7 @@ function handleDuckClick(event) {
     // check to see if the round has ended
     if (counter < maxCounter) {
         // the round can continue, new goats should render
-        renderDuck();
+        renderDucks();
     } else {
         // After voting rounds have been completed, remove the event listeners on the product.
         myContainer.removeEventListener('click', handleDuckClick);
@@ -110,7 +106,7 @@ function viewResults() {
 
 }
 
-renderDuck();
+renderDucks();
 
 // event listener on myContainer, for clicks,
 // my event handler is handleGoatClick
