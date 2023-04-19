@@ -4,15 +4,19 @@
   
   body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: rgb(189, 188, 180);
-    color: rgb(218, 164, 132);
+    background-color: rgb(185, 184, 180);
+    color: rgb(216, 209, 205);
   }
   
   h1 {
     font-size: 5rem;
     color: rosybrown;
+    grid-row-start:1;
+    grid-row-end: 2;
     line-height: .8;
     margin: 3rem 0 1rem;
+    z-index: 5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
   main {
@@ -24,9 +28,12 @@
   }
   
   #siteLogo {
-    width: 150px;
+    width: 105px;
     z-index: 2;
     grid-area: 1 / 1 / 2/ 1;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    
   }
   
   section {
@@ -43,7 +50,7 @@
   }
   
   section img {
-    width: 460px;
+    width: 40%;
     max-height: 26rem;
     border: 5px solid transparent;
   }
@@ -55,6 +62,7 @@
   
   ul {
     margin: 1rem;
+    grid-column-start: 2;
   }
   
   /* -- button -- */
@@ -67,6 +75,14 @@
     font-size: .8rem;
     margin: 1rem;
   }
+  div #chart{
+    grid-area: 4/4/6/6;
+    width:
+  }
+/* adjust min hight */
+#mychart{
+  min-height: 400px;
+}
  footer{
   position: fixed;
    left: 0;

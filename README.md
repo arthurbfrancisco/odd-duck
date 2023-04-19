@@ -12,7 +12,8 @@ credit: Dan, Anthony, Jared
 * Any Links you used as reference
 
 ### Lighthouse Accessibility Report Score
-* [Lighthouse score]()
+* [Lighthouse score](image/lighthouse1.png)
+* [Lighthouse score](image/lighthouse2.png)
 * Provide a screenshot of your score after running a Lighthouse Accessibility report.
 
 ### Reflections and Comments
