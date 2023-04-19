@@ -5,7 +5,7 @@ I build an app with a direct and powerful purpose. It does all of the things tha
 
 ### Author: Arthur F
 credit: Dan, Anthony, Jared
-credit: Antony Dan 
+credit: Antony Dan Ashley Jared
 
 ### Links and Resources
 
