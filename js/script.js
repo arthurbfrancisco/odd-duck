@@ -17,7 +17,7 @@ if (DuckArrayStorage) {
     let dogmouth = new Duck('dogduck');
     let meatdragon = new Duck('dragon');
     let pens = new Duck('pen');
-    let sweeper = new Duck('sweep', 'png');
+    let sweeper = new Duck('sweep','png');
     let scissorcutter = new Duck('scissors');
     let sharkpillow = new Duck('shark');
     let tauntaunblanket = new Duck('tauntaun');
