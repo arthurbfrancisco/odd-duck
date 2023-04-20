@@ -2,10 +2,13 @@
 // Declare an array to store duck objects
 let duckArray  = [];
 let indexArray =[];
+// Retrieve the 'duckArray' from local storage
 let DuckArrayStorage = localStorage.getItem('duckArray');
+// If 'duckArray' exists in local storage, parse it and assign it to duckArray
 if (DuckArrayStorage) {
     duckArray = JSON.parse(DuckArrayStorage);
 } else {
+// If 'duckArray' doesn't exist in local storage, create new Duck objects
     let bags = new Duck('bag');
     let bananacutter = new Duck('banana');
     let bathroomholder = new Duck('bathroom');
@@ -24,6 +27,7 @@ if (DuckArrayStorage) {
     let cannedunicorn = new Duck('unicorn');
     let pitchwater = new Duck('watercan');
     let glasswine = new Duck('wineglass');
+// Add the created Duck objects to the duckArray
     duckArray.push(bags, bananacutter, bathroomholder, bootsyellow, breakfastoven, meatballbubblegum, redhair, monstercthulhu, dogmouth, meatdragon, pens, sweeper, scissorcutter, sharkpillow, sharkpillow, tauntaunblanket, cannedunicorn, pitchwater, glasswine);
 }
 // Get a reference to the section element in the DOM
@@ -79,7 +83,7 @@ function renderDucks() {
             indexArray.push(randomIndex);
         }
     }
-    //   console.log(randomIndex);
+//   console.log(randomIndex);
 
     let imageOneIndex = indexArray.shift(); //25
     let imageTwoIndex = indexArray.pop(); //25
@@ -113,19 +117,19 @@ function handleDuckClick(event) {
     }
     // check to see if the round has ended
     if (counter < maxCounter) {
-        // localStorage.setItem('duckArray', JSON.stringify(duckArray));
+// localStorage.setItem('duckArray', JSON.stringify(duckArray));
 
-        // the round can continue, new goats should render
+// the round can continue, new duck  should render
         renderDucks();
     } else {
-        // After voting rounds have been completed, remove the event listeners on the product.
+// After voting rounds have been completed, remove the event listeners on the product.
         myContainer.removeEventListener('click', handleDuckClick);
-        // make the button clickable
+// make the button clickable
         viewResultsBtn.addEventListener('click', viewResults); //invoke the view result
-        // stop the game and render the results
+// stop the game and render the results
 
         renderCharts();
-        // myContainer.addEventListener('click', renderCharts);ß
+// myContainer.addEventListener('click', renderCharts);ß
     }
  }
 }
@@ -142,8 +146,8 @@ function viewResults() {
 // Add an event listener to handle clicks on the duck images
 //  function renderCharts
 function renderCharts() {
-    // console.log(duckArray);
-    // Charts
+// console.log(duckArray);
+// Charts
     const ctx = document.getElementById('myChart'); //window to the DOM element
 
 //empty array for ducks chart, pushings chart
@@ -246,7 +250,8 @@ function renderCharts() {
 //an event listener on a container element (myContainer) for clicks on the chart 
 //(handleDuckClick).
     renderDucks();
-    myContainer.addEventListener('click', handleDuckClick);
+// Add a 'click' event listener to the 'myContainer' element, which triggers
+myContainer.addEventListener('click', handleDuckClick);
    
 
 
