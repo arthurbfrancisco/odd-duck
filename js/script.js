@@ -254,77 +254,31 @@ function renderCharts() {
 myContainer.addEventListener('click', handleDuckClick);
    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //    
-//   // get the data our of local storage use it
-  
-//   function pageload() {
-// // get the data out of local storage with the key
-// // "setting " is our key
-// let savedSettings = localStorage.getItem("setting");
-// console.log(savedSettings)
-// if (savedSettings){
-//   console.log(savedSettings)
-// settings = JSON.parse(savedSettings);
-// console.log(settings);
-// if (settings.darkmode){
-//   enterDarkMode();
-// }else{
-
-// }else{
-//   return;
-//  }
-// }
-
-// //save setting to the local storage
-//  //functions saveSettings(){
-// //take the date and turn it into a string to store
-//     let stringify = JSON.stringify(settings);
-// console.log(stringify);
-// // put in in local storage with a label AKA:key
-// // "settings" is our key 1. Key string 2. the date as a string
-// // SET ITEMES take 2 argument:
-//     localStorage.setItems('settings', stringify)
-    
-//   }
-// //JSON.parse  ()
-//   //bottom page
-//   //load page
-//   pageLoad();
-// 
-
-/*user come to page
-product load
-user voter25 times
-results dispaly
-user leave
- user comeback
- at what point in this process should we put date in local storagte
- at what pint should we get data from local storage
- 
- at what pooino you create products
- what isfd there are products already in local storage
+/* DOM Concept
+*DOM (Document Object Model) is a programming interface for HTML and XML documents, allowing developers to access and manipulate the structure, content, and styling of web pages.
+*DOM represents a document as a tree-like structure, where each node is an object representing a part of the document, such as elements, attributes, and text.
+*DOM provides methods and properties that enable developers to create, update, delete, or modify elements and attributes within the document, effectively changing the content and appearance of a web page dynamically.
+*Event handling is a key feature of DOM, allowing developers to attach event listeners to elements and respond to user interactions such as clicks, key presses, or mouse movements.
+*DOM is not part of the JavaScript language itself but is closely integrated with JavaScript, making it the primary tool for web developers to interact with and manipulate web pages using JavaScript.
+ * 
  */
+/*
+* JSON Concept Definition
+* JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate.
+*JSON is language-independent, meaning it can be used with various programming languages, not just JavaScript.
+*JSON uses a simple text format, consisting of key-value pairs, where keys are strings and values can be strings, numbers, booleans, null, or other JSON objects and arrays.
+*JSON is often used to transmit data between a server and a web application, serving as an alternative to XML.
+*To work with JSON in JavaScript, you can use JSON.parse() to convert a JSON string into a JavaScript object, and JSON.stringify() to convert a JavaScript object into a JSON string.
+*/
+
+// get the data our of local storage use it
+//function pageload() {
+//get the data out of local storage with the key
+//save setting to the local storage
+//functions saveSettings(){
+//take the date and turn it into a string to store
+//let stringify = JSON.stringify(settings);
+//console.log(stringify);
+//put in in local storage with a label AKA:key
+//"settings" is our key 1. Key string 2. the date as a string
+// SET ITEMES take 2 argument:
