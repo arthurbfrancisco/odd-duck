@@ -129,18 +129,18 @@ function viewResults() {
 // Add an event listener to handle clicks on the duck images
 //  function renderCharts
 function renderCharts() {
-// console.log(duckArray);
-// Charts
+    // console.log(duckArray);
+    // Charts
     const ctx = document.getElementById('myChart'); //window to the DOM element
 
- //empty array for ducks chart, pushings chart
+    //empty array for ducks chart, pushings chart
     let duckNames = [];
     let duckVotes = [];
     let duckViews = [];
-//This is a for loop that iterates through the duckArray object. For each object 
-//in the duckArray, the code extracts the duck's name, votes, and views and adds
-//them to the corresponding arrays. This loop also logs the current values of the 
- //duckNames, duckVotes, and duckViews arrays to the console.
+    //This is a for loop that iterates through the duckArray object. For each object 
+    //in the duckArray, the code extracts the duck's name, votes, and views and adds
+    //them to the corresponding arrays. This loop also logs the current values of the 
+    //duckNames, duckVotes, and duckViews arrays to the console.
     for (let i = 0; i < duckArray.length; i++) {
         console.log(duckArray[i]);
 
@@ -189,7 +189,7 @@ function renderCharts() {
                     data: duckViews,
                     borderWidth: 1,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(111, 11, 224, 0.2)',
                         'rgba(255, 159, 64, 0.2)',
                         'rgba(255, 205, 86, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
@@ -223,17 +223,17 @@ function renderCharts() {
     };
     //create and instance rendering using charts.js
     new Chart(ctx, config);
+    document.getElementById('chartContainer').style.display = 'block';
+
 };
 renderDucks();
 // Add a 'click' event listener to the 'myContainer' element, which triggers
 myContainer.addEventListener('click', handleDuckClick);
+//End the chart
 
 
 
-
-
-
-/*
+/* Line deletion
 Create new Duck objects
  Check if there's data in local storage
  if (localStorage.getItem('duckArray')) {
@@ -253,7 +253,7 @@ Create new Duck objects
  Add the created Duck objects to the duckArray, instances push to the array
  Function to render ducks on the page
  get a random number to use with duck array to get a random duck*/
-
+//End of Deletion
 
 
 /*
