@@ -57,12 +57,11 @@ section img {
 }
 
 
-
 /* -- button -- */
 section + div {
   background-color: rgba(128, 128, 128, 0.734);
   color: lightgrey;
-  padding: .5rem 1rem;
+  padding: 0px;
   width: max-content;
   height: max-content;
   font-size: .8rem;

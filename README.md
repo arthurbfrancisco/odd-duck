@@ -16,6 +16,7 @@ credit: Antony Dan Ashley Jared
 * [Lighthouse score](image/lighthouse1.png)
 * [Lighthouse score](image/lighthouse2.png)
 * [Lighthouse score](image/lighthouse3.png)
+* [Lighthouse score](image/LightouseLab15B.png)
 
 * Provide a screenshot of your score after running a Lighthouse Accessibility report.
 
