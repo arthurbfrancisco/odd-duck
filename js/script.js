@@ -163,49 +163,28 @@ function renderCharts() {
 
                 {
                     label: '# of Votes',
-    data: duckVotes,
-    borderWidth: 1,
-    backgroundColor: [
-        'rgba(255, 0, 0, 0.5)',
-        'rgba(255, 128, 0, 0.5)',
-        'rgba(255, 255, 0, 0.5)',
-        'rgba(0, 255, 0, 0.5)',
-        'rgba(0, 0, 255, 0.5)',
-        'rgba(75, 0, 130, 0.5)',
-        'rgba(148, 0, 211, 0.5)'
-    ],
-    borderColor: [
-        'rgba(255, 0, 0, 0.5)',
-        'rgba(255, 128, 0, 0.5)',
-        'rgba(255, 255, 0, 0.5)',
-        'rgba(0, 255, 0, 0.5)',
-        'rgba(0, 0, 255, 0.5)',
-        'rgba(75, 0, 130, 0.5)',
-        'rgba(148, 0, 211, 0.5)'
-    ],
-},
-{
-    label: '# of Views',
-    data: duckViews,
-    borderWidth: 1,
-    backgroundColor: [
-        'rgba(0, 255, 255, 0.5)',
-        'rgba(255, 0, 255, 0.5)',
-        'rgba(255, 255, 0, 0.5)',
-        'rgba(0, 128, 0, 0.5)',
-        'rgba(128, 0, 128, 0.5)',
-        'rgba(255, 128, 0, 0.5)',
-        'rgba(128, 128, 128, 0.5)'
-    ],
-    borderColor: [
-        'rgba(0, 255, 255, 0.5)',
-        'rgba(255, 0, 255, 0.5)',
-        'rgba(255, 255, 0, 0.5)',
-        'rgba(0, 128, 0, 0.5)',
-        'rgba(128, 0, 128, 0.5)',
-        'rgba(255, 128, 0, 0.5)',
-        'rgba(128, 128, 128, 0.5)'
-    ],
+                    data: duckVotes,
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgba(255, 128, 0, 0.5)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 128, 0, 0.5)',
+
+                    ],
+                },
+                {
+                    label: '# of Views',
+                    data: duckViews,
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgba(0, 255, 255, 0.5)',
+
+                    ],
+                    borderColor: [
+                        'rgba(0, 255, 255, 0.5)',
+
+                    ],
                 }
 
             ],
