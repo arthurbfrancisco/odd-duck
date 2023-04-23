@@ -1,14 +1,16 @@
 'use strict';
 // Declare an array to store duck objects
-let duckArray  = [];
-let indexArray =[];
-// Retrieve the 'duckArray' from local storage
+// ask local storage to retrieve the 'duckArray'
+let duckArray = [];
+let indexArray = [];
+// Retrieve the 'duckArray' from local storage unstringify it
 let DuckArrayStorage = localStorage.getItem('duckArray');
-// If 'duckArray' exists in local storage, parse it and assign it to duckArray
 if (DuckArrayStorage) {
+    // (DuckArrayStorage = localStorage? if 
+    // If 'duckArray' exists in local storage, parse it and assign it to duckArray,
     duckArray = JSON.parse(DuckArrayStorage);
 } else {
-// If 'duckArray' doesn't exist in local storage, create new Duck objects
+    // If 'duckArray' doesn't exist in local storage, create new Duck objects
     let bags = new Duck('bag');
     let bananacutter = new Duck('banana');
     let bathroomholder = new Duck('bathroom');
@@ -20,14 +22,14 @@ if (DuckArrayStorage) {
     let dogmouth = new Duck('dogduck');
     let meatdragon = new Duck('dragon');
     let pens = new Duck('pen');
-    let sweeper = new Duck('sweep','png');
+    let sweeper = new Duck('sweep', 'png');
     let scissorcutter = new Duck('scissors');
     let sharkpillow = new Duck('shark');
     let tauntaunblanket = new Duck('tauntaun');
     let cannedunicorn = new Duck('unicorn');
     let pitchwater = new Duck('watercan');
     let glasswine = new Duck('wineglass');
-// Add the created Duck objects to the duckArray
+    // Add the created Duck objects to the duckArray
     duckArray.push(bags, bananacutter, bathroomholder, bootsyellow, breakfastoven, meatballbubblegum, redhair, monstercthulhu, dogmouth, meatdragon, pens, sweeper, scissorcutter, sharkpillow, sharkpillow, tauntaunblanket, cannedunicorn, pitchwater, glasswine);
 }
 // Get a reference to the section element in the DOM
@@ -36,8 +38,6 @@ let myContainer = document.querySelector('section');
 let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');
 let image3 = document.querySelector('section img:nth-child(3)');
-// Get a reference to the view results button
-let viewResultsBtn = document.querySelector('section ~ div')
 // Initialize a counter for the number of clicks and the 
 let counter = 0;
 let maxCounter = 25; //25
@@ -48,28 +48,6 @@ function Duck(name, fileExtension = 'jpg') {
     this.views = 0;
     this.votes = 0;
 }
-// Create new Duck objects
-// Check if there's data in local storage
-// if (localStorage.getItem('duckArray')) {
-//     // Retrieve the duckArray from local storage
-//     let storedDuckArray = JSON.parse(localStorage.getItem('duckArray'));
-
-//     // Reconstruct duck objects with prototype methods if necessary and store them in duckArray
-//     for (let i = 0; i < storedDuckArray.length; i++) {
-//         let duck = new Duck(storedDuckArray[i].name);
-//         duck.views = storedDuckArray[i].views;
-//         duck.votes = storedDuckArray[i].votes;
-//         duckArray.push(duck);
-//     }
-// } else {
-//     // Create new Duck objects and store them in duckArray
-//     // Add the created Duck objects to the duckArray, instances push to the array
-//     localStorage.setItem('duckArray', JSON.stringify(duckArray));
-// }
-// // Add the created Duck objects to the duckArray, instances push to the array
-// // Function to render ducks on the page
-// // - get a random number to use with duck array to get a random duck
-
 function renderDucks() {
     indexArray = [];
     // let duck1 = selectRandomDuckNumber();
@@ -83,7 +61,7 @@ function renderDucks() {
             indexArray.push(randomIndex);
         }
     }
-//   console.log(randomIndex);
+    //   console.log(randomIndex);
 
     let imageOneIndex = indexArray.shift(); //25
     let imageTwoIndex = indexArray.pop(); //25
@@ -101,38 +79,43 @@ function renderDucks() {
 }
 // Function to handle clicks on duck images, event listener.
 function handleDuckClick(event) {
+
+
     if (event.target.tagName === 'IMG') {
         counter++;
         console.log(event.target.alt);
         let clickedDuck = event.target.alt;
-    // counter++;
-    // console.log(event.target.alt);
-    // let clickedDuck = event.target.alt;
-    // find a the goat instance in the goat array whose name property equals the clickedGoat value.
-    for (let i = 0; i < duckArray.length; i++) {
-        if (clickedDuck === duckArray[i].name) { // if the duck is already  clicked then just return.
-            duckArray[i].votes++;   // increment
-            console.log(duckArray); // increment  the number of          
+        // counter++;
+        // console.log(event.target.alt);
+        // let clickedDuck = event.target.alt;
+        // find a the goat instance in the goat array whose name property equals the clickedGoat value.
+        for (let i = 0; i < duckArray.length; i++) {
+            if (clickedDuck === duckArray[i].name) { // if the duck is already  clicked then just return.
+                duckArray[i].votes++;   // increment
+                console.log(duckArray); // increment  the number of          
+            }
+        }
+        // check to see if the round has ended
+        if (counter < maxCounter) {
+            // localStorage.setItem('duckArray', JSON.stringify(duckArray));
+            // the round can continue, new duck  should render
+            renderDucks();
+        } else {
+
+            // After voting rounds have been completed, remove the event listeners on the product.
+            myContainer.removeEventListener('click', handleDuckClick);
+            // make the button clickable
+            renderCharts();
+            // viewResultsBtn.addEventListener('click', viewResults); //invoke the view result
+            // stop the game and render the results
+            // myContainer.addEventListener('click', renderCharts);ß
+            let stringifiedDuckArray = JSON.stringify(duckArray);
+
+            localStorage.setItem('duckArray', stringifiedDuckArray);
         }
     }
-    // check to see if the round has ended
-    if (counter < maxCounter) {
-// localStorage.setItem('duckArray', JSON.stringify(duckArray));
-
-// the round can continue, new duck  should render
-        renderDucks();
-    } else {
-// After voting rounds have been completed, remove the event listeners on the product.
-        myContainer.removeEventListener('click', handleDuckClick);
-// make the button clickable
-        viewResultsBtn.addEventListener('click', viewResults); //invoke the view result
-// stop the game and render the results
-
-        renderCharts();
-// myContainer.addEventListener('click', renderCharts);ß
-    }
- }
 }
+
 // Function to display the results after voting rounds are completed
 function viewResults() {
     let ul = document.querySelector('ul');
@@ -150,14 +133,14 @@ function renderCharts() {
 // Charts
     const ctx = document.getElementById('myChart'); //window to the DOM element
 
-//empty array for ducks chart, pushings chart
+ //empty array for ducks chart, pushings chart
     let duckNames = [];
     let duckVotes = [];
     let duckViews = [];
 //This is a for loop that iterates through the duckArray object. For each object 
 //in the duckArray, the code extracts the duck's name, votes, and views and adds
 //them to the corresponding arrays. This loop also logs the current values of the 
-//duckNames, duckVotes, and duckViews arrays to the console.
+ //duckNames, duckVotes, and duckViews arrays to the console.
     for (let i = 0; i < duckArray.length; i++) {
         console.log(duckArray[i]);
 
@@ -168,91 +151,119 @@ function renderCharts() {
         duckViews.push(duckArray[i].views);
         console.log(duckNames);
         console.log(duckVotes);
-        console.log(duckViews); 
+        console.log(duckViews);
+    }
 
-        }
+    let config = {
+        type: 'bar',
+        data: {
+            labels: duckNames,
 
-        let config = {
-            type: 'bar',
-            data: {
-                labels: duckNames,
+            datasets: [
 
-                datasets: [
+                {
+                    label: '# of Votes',
+                    data: duckVotes,
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                    ],
+                },
+                {
+                    label: '# of Views',
+                    data: duckViews,
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                    ],
+                }
 
-                    {
-                        label: '# of Votes',
-                        data: duckVotes,
-                        borderWidth: 1,
-                          backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(255, 205, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(201, 203, 207, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgb(255, 99, 132)',
-                            'rgb(255, 159, 64)',
-                            'rgb(255, 205, 86)',
-                            'rgb(75, 192, 192)',
-                            'rgb(54, 162, 235)',
-                            'rgb(153, 102, 255)',
-                            'rgb(201, 203, 207)'
-                        ],
-                    },
-                    {
-                        label: '# of Views',
-                        data: duckViews,
-                        borderWidth: 1,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(255, 205, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(201, 203, 207, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgb(255, 99, 132)',
-                            'rgb(255, 159, 64)',
-                            'rgb(255, 205, 86)',
-                            'rgb(75, 192, 192)',
-                            'rgb(54, 162, 235)',
-                            'rgb(153, 102, 255)',
-                            'rgb(201, 203, 207)'
-                        ],
-                    }
+            ],
 
-                ],
-
-            },
+        },
 
 
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
-        };
-//create and instance rendering using charts.js
-        new Chart(ctx, config);
-       };
-
-//Finally, the code creates a new instance of the Chart.js 
-//library, passing in the configuration object and a reference to the
-// HTML canvas element that the chart should be rendered into. The code then 
-//calls the renderDucks() function to initially render the chart, and sets up 
-//an event listener on a container element (myContainer) for clicks on the chart 
-//(handleDuckClick).
-    renderDucks();
+        }
+    };
+    //create and instance rendering using charts.js
+    new Chart(ctx, config);
+};
+renderDucks();
 // Add a 'click' event listener to the 'myContainer' element, which triggers
 myContainer.addEventListener('click', handleDuckClick);
-   
+
+
+
+
+
+
+/*
+Create new Duck objects
+ Check if there's data in local storage
+ if (localStorage.getItem('duckArray')) {
+     // Retrieve the duckArray from local storage
+     let storedDuckArray = JSON.parse(localStorage.getItem('duckArray'));
+
+     // Reconstruct duck objects with prototype methods if necessary and store them in duckArray
+     for (let i = 0; i < storedDuckArray.length; i++) {
+        let duck = new Duck(storedDuckArray[i].name);
+         duck.views = storedDuckArray[i].views;         duck.votes = storedDuckArray[i].votes;
+       duckArray.push(duck);
+   }
+ } else {
+ Create new Duck objects and store them in duckArray
+ Add the created Duck objects to the duckArray, instances push to the array
+     localStorage.setItem('duckArray', JSON.stringify(duckArray));
+ Add the created Duck objects to the duckArray, instances push to the array
+ Function to render ducks on the page
+ get a random number to use with duck array to get a random duck*/
+
+
+
+/*
+//Finally, the code creates a new instance of the Chart.js
+//library, passing in the configuration object and a reference to the
+// HTML canvas element that the chart should be rendered into. The code then
+//calls the renderDucks() function to initially render the chart, and sets up
+//an event listener on a container element (myContainer) for clicks on the chart
+//(handleDuckClick).
+ */
 
 /* DOM Concept
 *DOM (Document Object Model) is a programming interface for HTML and XML documents, allowing developers to access and manipulate the structure, content, and styling of web pages.
@@ -260,7 +271,6 @@ myContainer.addEventListener('click', handleDuckClick);
 *DOM provides methods and properties that enable developers to create, update, delete, or modify elements and attributes within the document, effectively changing the content and appearance of a web page dynamically.
 *Event handling is a key feature of DOM, allowing developers to attach event listeners to elements and respond to user interactions such as clicks, key presses, or mouse movements.
 *DOM is not part of the JavaScript language itself but is closely integrated with JavaScript, making it the primary tool for web developers to interact with and manipulate web pages using JavaScript.
- * 
  */
 /*
 * JSON Concept Definition
@@ -270,7 +280,7 @@ myContainer.addEventListener('click', handleDuckClick);
 *JSON is often used to transmit data between a server and a web application, serving as an alternative to XML.
 *To work with JSON in JavaScript, you can use JSON.parse() to convert a JSON string into a JavaScript object, and JSON.stringify() to convert a JavaScript object into a JSON string.
 */
-
+//Note: JSON
 // get the data our of local storage use it
 //function pageload() {
 //get the data out of local storage with the key
